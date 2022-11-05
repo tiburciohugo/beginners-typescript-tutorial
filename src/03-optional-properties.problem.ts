@@ -1,11 +1,16 @@
 import { expect, it } from "vitest";
 
-export const getName = (params: { first: string; last: string }) => {
+interface Person {
+  first: string;
+  last?: string;
+}
+
+export const getName = (params : Person) => {
   if (params.last) {
     return `${params.first} ${params.last}`;
   }
   return params.first;
-};
+}; 
 
 it("Should work with just the first name", () => {
   const name = getName({
